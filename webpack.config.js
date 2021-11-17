@@ -12,7 +12,7 @@ module.exports = {
         filename: '[name].[hash:7].js',
         publicPath: envConfig.publicPath,
     },
-    devtool: '#source-map',
+    devtool: "eval-cheap-source-map",
     module: {
         rules: [
             {
@@ -38,7 +38,6 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: path.resolve(__dirname, './client/assets/[name].[hash:7].[ext]'),
                 }
             },
             {
