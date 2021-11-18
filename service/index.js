@@ -3,6 +3,7 @@ const { webpack, HotModuleReplacementPlugin } = require('webpack');
 const WebpackDevMiddleware = require("webpack-dev-middleware");
 const WebpackHotMiddleware = require("webpack-hot-middleware");
 const webpackConfig = require('../webpack.config');
+const path = require('path')
 
 const app = express();
 
@@ -21,6 +22,17 @@ const hotMiddleware = WebpackHotMiddleware(complier,{
 });
 app.use(devMiddleware);
 app.use(hotMiddleware);
+
+app.get("*", (req, res, next)=>{
+    complier.outputFileSystem.readFile(path.resolve(webpackConfig.output.path, './index.html'), (err, result) => {
+        if (err) {
+            return next(err);
+        }
+        res.set('content-type', 'text/html');
+        res.send(result);
+        res.end();
+    })
+})
 
 app.listen(9000, ()=>{
     console.log("启动成功：localhost:9000");
