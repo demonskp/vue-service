@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false;
-console.log('11111111')
+const a = {};
+console.log(111, a?.s?.a);
 new Vue({
   router,
   store,
