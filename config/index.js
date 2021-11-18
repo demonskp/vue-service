@@ -1,4 +1,4 @@
-const env = process.argv.env || "development";
+const env = process.env.NODE_ENV || "development";
 
 const envConfig = require(`./config.${env}.js`);
 
