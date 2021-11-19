@@ -1,4 +1,4 @@
 module.exports = {
-    mode: "test",
-    publicPath: "./",
-}
+  mode: 'test',
+  publicPath: './',
+};

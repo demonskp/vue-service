@@ -6,29 +6,29 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
-      data:1,
-    }
+      data: 1,
+    };
   },
-  methods:{
-    clickHandle(){
-    }
+  methods: {
+    clickHandle() {
+    },
   },
   computed: {
     ...mapState({
-      testData:"testData",
+      testData: 'testData',
     }),
-    
-  }
-}
+
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
