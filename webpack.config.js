@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
-const { DefinePlugin, NoEmitOnErrorsPlugin } = require('webpack');
+const { DefinePlugin, NoEmitOnErrorsPlugin, ProgressPlugin } = require('webpack');
 const { envConfig } = require('./config');
 
 module.exports = {
@@ -63,5 +63,6 @@ module.exports = {
             ENV_CONFIG: JSON.stringify(envConfig),
         }),
         new NoEmitOnErrorsPlugin(),
+        new ProgressPlugin(),
     ]
 };
