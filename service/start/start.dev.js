@@ -24,11 +24,6 @@ function startDevService(app) {
   app.use(devMiddleware);
   app.use(hotMiddleware);
 
-  app.all('/api', (req, res) => {
-    res.send('hello');
-    res.end();
-  });
-
   app.get('*', (req, res, next) => {
     complier.outputFileSystem.readFile(path.resolve(webpackConfig.output.path, './index.html'), (err, result) => {
       if (err) {
