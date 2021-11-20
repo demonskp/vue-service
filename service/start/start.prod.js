@@ -1,6 +1,6 @@
 const express = require('express');
 const history = require('connect-history-api-fallback');
-const webpackConfig = require('../webpack.config');
+const webpackConfig = require('../../webpack.config');
 
 /**
  * 启动开发服务器

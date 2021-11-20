@@ -2,7 +2,7 @@ const { webpack, HotModuleReplacementPlugin } = require('webpack');
 const WebpackDevMiddleware = require('webpack-dev-middleware');
 const WebpackHotMiddleware = require('webpack-hot-middleware');
 const path = require('path');
-const webpackConfig = require('../webpack.config');
+const webpackConfig = require('../../webpack.config');
 
 /**
  * 启动开发服务器
