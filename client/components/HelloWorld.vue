@@ -7,6 +7,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import axios from 'axios';
 
 export default {
   name: 'HelloWorld',
@@ -20,6 +21,25 @@ export default {
   },
   methods: {
     clickHandle() {
+      axios.post('https://passport-pbsp-test.myysq.com.cn/auth/login', {
+        tenantCode: 'ywycwcg',
+        userName: 'ywycwcg',
+        password: 'sh123456',
+      }, {
+        transformRequest: [(data) => {
+          let ret = '';
+          for (const it in data) {
+            ret += `${encodeURIComponent(it)}=${encodeURIComponent(data[it])}&`;
+          }
+          ret = ret.substring(0, ret.lastIndexOf('&'));
+          return ret;
+        }],
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }).then((res) => {
+        console.log(1111, res);
+      });
     },
   },
   computed: {

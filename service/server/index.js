@@ -6,7 +6,7 @@ const { envConfig } = require('../../config');
  * @param {import('express').Express} app express实例
  * @param {String} apiPath 转发的路由前缀
  */
-function loadAllServer(app, apiPath) {
+function loadAllServer(app, apiPath = '') {
   const { servers = [] } = envConfig;
   servers.forEach((server) => {
     app.use(apiPath + server.path, proxy(server.proxyTo, server.option));

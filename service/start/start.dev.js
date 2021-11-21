@@ -35,12 +35,8 @@ function startDevService(app) {
     });
   });
 
-  complier.hooks.done.tap('done', () => {
-    setTimeout(() => {
-      app.listen(9000, () => {
-        console.log('启动成功：localhost:9000');
-      });
-    }, 100);
+  app.listen(9000, () => {
+    console.log('启动成功：localhost:9000');
   });
 }
 
