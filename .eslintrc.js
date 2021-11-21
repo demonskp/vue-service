@@ -16,5 +16,6 @@ module.exports = {
     'vue',
   ],
   rules: {
+    'vuejs-accessibility/label-has-for': 'off',
   },
 };

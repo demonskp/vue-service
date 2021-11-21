@@ -9,15 +9,16 @@ module.exports = [
     path: '/devLogin',
     /**
      * 控制器
-     * @param {*} req 请求
+     * @param {import('express').Request} req 请求
      * @param {*} res 返回
      */
     controller: async (req, res) => {
+      const { tenantCode, userName, password } = req.body || {};
       try {
         const result = await axios.post('https://passport-pbsp-test.myysq.com.cn/auth/login', {
-          tenantCode: 'ywycwcg',
-          userName: 'ywycwcg',
-          password: 'sh123456',
+          tenantCode,
+          userName,
+          password,
         }, {
           transformRequest: [(data) => {
             let ret = '';

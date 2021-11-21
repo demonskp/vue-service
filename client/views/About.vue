@@ -4,6 +4,8 @@
   </div>
 </template>
 <script>
+import { userApi } from '../api';
+
 export default {
   data() {
     return {
@@ -12,6 +14,9 @@ export default {
   },
   methods: {
     clickHandle() {
+      userApi.getUserConfig().then((res) => {
+        console.log(res);
+      });
     },
   },
 };
